@@ -10,8 +10,11 @@
 <hr>
 <br>
 @foreach ($notas as $nota)
-<div style="border:2px dashed pink;padding:8px; width:fit-content; background-color: cyan;color:red; margin:4px; text-align:center; display:inline; font-style: italic; text-decoration: underline">
+<div style="border:2px dashed pink;padding:8px; background-color: cyan;color:red; margin:4px; text-align:center; font-style: italic; width: 120px; text-decoration: underline">
 
     {{ $nota->texto }}
+    <br>
+    <a href="{{ route('keep.editar', $nota->id) }}">Editar</a> <br>
+    <a href="{{ route('keep.apagar', $nota->id) }}">Excluir</a>
 </div>
 @endforeach
