@@ -1,8 +1,16 @@
 <h1>Keepinho</h1>
 <p>Seja bem vindo ao Keepinho, o melhor assistente do UNIVERSO</p>
 <hr>
+@if ($errors->any())
+<div style="color:red">
+<h3>ERRO PORRA</h3>
+</div>
+@endif
 <form action="{{ route('keep.gravar') }}" method="post">
 @csrf
+<label for="titulo">Título: </label>
+<input type="text" name="titulo"> <br> <br>
+<label for="texto">Nota: </label><br>
 <textarea name="texto" id="texto" cols="30" rows="10"></textarea><br><br>
 <input type="submit" value="Gravar nota">
 </form>
@@ -11,7 +19,7 @@
 <br>
 @foreach ($notas as $nota)
 <div style="border:2px dashed pink;padding:8px; background-color: cyan;color:red; margin:4px; text-align:center; font-style: italic; width: 120px; text-decoration: underline">
-    <b>{{  }}</b>
+    <b>{{ $nota->titulo }}</b><br>
     {{ $nota->texto }}
     <br>
     <a href="{{ route('keep.editar', $nota->id) }}">Editar</a> <br>

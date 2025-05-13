@@ -19,7 +19,7 @@ class NotaSeeder extends Seeder
         ]);
 
         DB::table("notas")->insert([
-            'titulo' => 'Título 1',
+            'titulo' => 'Título 2',
             'texto' => 'Exemplo de nota 2',
         ]);
     }
