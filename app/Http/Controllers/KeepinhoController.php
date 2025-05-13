@@ -33,4 +33,8 @@ class KeepinhoController extends Controller
         }
         
     }
+    public function apagar(Nota $nota){
+        $nota->delete();
+        return redirect()->route('keep');
+    }
 }
