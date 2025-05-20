@@ -4,14 +4,20 @@
 @if ($errors->any())
 <div style="color:red">
 <h3>ERRO PORRA</h3>
+<ul>
+    @foreach ($errors->all() as $err)
+    <li>{{ $err }}</li>
+    @endforeach  
+</ul>
+
 </div>
 @endif
 <form action="{{ route('keep.gravar') }}" method="post">
 @csrf
 <label for="titulo">Título: </label>
-<input type="text" name="titulo"> <br> <br>
+<input type="text" name="titulo" value="{{ old('titulo') }}"> <br> <br>
 <label for="texto">Nota: </label><br>
-<textarea name="texto" id="texto" cols="30" rows="10"></textarea><br><br>
+<textarea name="texto" id="texto" cols="30" rows="10">{{ old('texto') }}</textarea><br><br>
 <input type="submit" value="Gravar nota">
 </form>
 
@@ -27,7 +33,7 @@
     <form action="{{ route('keep.apagar', $nota->id) }}" method="post">
     @method('DELETE')
     @csrf
-        <button type="submit">Excluir</button>
+        <button type="submit" style="background-color:red">Excluir</button>
     </form>
 </div>
 @endforeach
