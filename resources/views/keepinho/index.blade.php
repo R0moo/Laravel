@@ -1,6 +1,11 @@
 <h1>Keepinho</h1>
 <p>Seja bem vindo ao Keepinho, o melhor assistente do UNIVERSO</p>
 <hr>
+
+<a href="{{route('keep.lixeira')}}">Lixeira</a>
+<br>
+<hr>
+
 @if ($errors->any())
 <div style="color:red">
 <h3>ERRO PORRA</h3>

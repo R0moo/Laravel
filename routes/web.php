@@ -35,6 +35,10 @@ Route::prefix("/keep")->group(function(){
 
     Route::delete('/apagar/{nota}', [KeepinhoController::class,'apagar'])->name('keep.apagar');
 
+    Route::get('/lixeira', [KeepinhoController::class,'lixeira'])->name('keep.lixeira');
+
+    Route::get('/restaurar/{nota}', [KeepinhoController::class, 'restaurar'])->name('keep.restaurar');
+
 });
 
 
